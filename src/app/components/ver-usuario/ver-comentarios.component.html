@@ -1,0 +1,14 @@
+<div class="container app">
+    <div class="spinner-border text-primary container" role="status" *ngIf="loading">
+        <span class="sr-only">Cargando...</span>
+    </div>
+    <div class="container">
+        <h3>{{Usuario.name_usuarios}}</h3>
+        <ul>
+            <li>{{Usuario.usuarios}}</li>
+            <li>{{Usuario.correo}}</li>
+            <li>{{Usuario.id_rol}}</li>
+
+        </ul>
+    </div>
+</div>

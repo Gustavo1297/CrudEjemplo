@@ -1,0 +1,42 @@
+<div class="container app">
+    <div class="row" style="padding-top: 15px;">
+        <div class="col-lg-6">
+            <h3 class="text-center">Usuarios</h3>
+        </div>
+        <div class="col-lg-6">
+            <button class="btn btn-primary float-right" [routerLink]="['/agregar']">Agregar Usuario</button>
+        </div>
+    </div>
+    <div class="spinner-border text-primary" role="status" *ngIf="loading">
+        <span class="sr-only">Cargando...</span>
+    </div>
+    <br>
+    <table class="table table-sm table-hover">
+        <thead>
+            <th>Clave Usuario</th>
+            <th>Usuario</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Clave del Rol</th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let usuarios of listaUsuarios">
+                <td style="text-align: center;">{{usuarios.id_usuario}}</td>
+                <td>
+                    <a [routerLink]="['/ver/',usuarios.id_usuario]" style="text-decoration: none;"> {{usuarios.usuarios}}</a>
+
+                </td>
+                <td>{{usuarios.name_usuarios}}</td>
+                <td>{{usuarios.correo}}</td>
+                <td style="text-align: center;">{{usuarios.id_rol}}</td>
+                <td>
+                    <Button class="btn btn-primary btn-sm float-right" [routerLink]="['/editar/',usuarios.id_usuario]">Editar</Button>
+                </td>
+                <td><button class="btn btn-danger btn-sm float-right" (click)="deleteUsuario(usuarios.id_usuario)">Eliminar</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

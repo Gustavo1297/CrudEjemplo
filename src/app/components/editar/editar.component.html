@@ -1,0 +1,48 @@
+<div class="container app" style="width: 500px;">
+    <h3 class="text-center">Editar Usuario</h3>
+
+    <form [formGroup]="form_usuarios" (ngSubmit)="actualizarUsuario()">
+        <div class="form-group row text-center">
+
+            <input type="text" class="form-control text-center" formControlName="usuario" placeholder="Usuario">
+
+            <!--Usuarios-->
+            <span class="text-danger ml-3" *ngIf="form_usuarios.get('usuario').hasError('required') && form_usuarios.get('usuario').touched">
+                    El usuario es Requerido
+            </span>
+        </div>
+
+        <div class="form-group row">
+
+            <input type="text" class="form-control text-center" formControlName="nombre" placeholder="Nombre">
+
+            <span class="text-danger ml-3" *ngIf="form_usuarios.get('nombre').hasError('required') && form_usuarios.get('nombre').touched">
+                    El Nombre es requerido
+            </span>
+        </div>
+        <!--Nombre-->
+        <div class="form-group row">
+
+            <input type="text" class="form-control text-center" formControlName="correo" placeholder="Correo">
+
+            <span class="text-danger ml-3" *ngIf="form_usuarios.get('correo').hasError('required') && form_usuarios.get('correo').touched">
+                    El Correo es requerido.
+            </span>
+        </div>
+        <!--Correo-->
+
+        <div class="form-group row">
+
+            <input type="text" class="form-control text-center" formControlName="rol" placeholder="Rol">
+
+            <span class="text-danger ml-3" *ngIf="form_usuarios.get('rol').hasError('required') && form_usuarios.get('rol').touched">
+                    El Correo es requerido.
+            </span>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success float-right">Aceptar</button>
+            <button [routerLink]="['listaUsuarios']" class="btn btn-secondary float-left">Cancelar</button>
+        </div>
+    </form>
+
+</div>
